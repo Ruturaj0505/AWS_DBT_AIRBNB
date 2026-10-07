@@ -32,5 +32,15 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   AWS_DBT_Snowflake:
     # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    Bronze:
+      +materialized: table
+      +schema: Bronze
+    
+    Silver:
+      +materialized: table
+      +schema: Silver
+    Gold:
+      +materialized: table
+      +schema: gold
+    ephemeral:
+      +materialized: table
